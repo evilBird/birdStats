@@ -9,7 +9,20 @@
 /* Begin PBXBuildFile section */
 		F254F53E1C17768E004AF7A2 /* birdStats.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F254F53D1C17768E004AF7A2 /* birdStats.h */; };
 		F254F5401C17768E004AF7A2 /* birdStats.m in Sources */ = {isa = PBXBuildFile; fileRef = F254F53F1C17768E004AF7A2 /* birdStats.m */; };
+		F254F54D1C1776B8004AF7A2 /* birdStatsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F254F54C1C1776B8004AF7A2 /* birdStatsTests.m */; };
+		F254F54F1C1776B8004AF7A2 /* libbirdStats.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F254F53A1C17768E004AF7A2 /* libbirdStats.a */; };
+		F254F5581C17778E004AF7A2 /* birdBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = F254F5561C17778E004AF7A2 /* birdBuffer.c */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F254F5501C1776B8004AF7A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F254F5321C17768E004AF7A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F254F5391C17768E004AF7A2;
+			remoteInfo = birdStats;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		F254F5381C17768E004AF7A2 /* CopyFiles */ = {
@@ -28,6 +41,11 @@
 		F254F53A1C17768E004AF7A2 /* libbirdStats.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libbirdStats.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F254F53D1C17768E004AF7A2 /* birdStats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = birdStats.h; sourceTree = "<group>"; };
 		F254F53F1C17768E004AF7A2 /* birdStats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = birdStats.m; sourceTree = "<group>"; };
+		F254F54A1C1776B8004AF7A2 /* birdStatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = birdStatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F254F54C1C1776B8004AF7A2 /* birdStatsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = birdStatsTests.m; sourceTree = "<group>"; };
+		F254F54E1C1776B8004AF7A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F254F5561C17778E004AF7A2 /* birdBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = birdBuffer.c; sourceTree = "<group>"; };
+		F254F5571C17778E004AF7A2 /* birdBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = birdBuffer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +56,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F254F5471C1776B8004AF7A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F254F54F1C1776B8004AF7A2 /* libbirdStats.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -45,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				F254F53C1C17768E004AF7A2 /* birdStats */,
+				F254F54B1C1776B8004AF7A2 /* birdStatsTests */,
 				F254F53B1C17768E004AF7A2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				F254F53A1C17768E004AF7A2 /* libbirdStats.a */,
+				F254F54A1C1776B8004AF7A2 /* birdStatsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,10 +88,29 @@
 		F254F53C1C17768E004AF7A2 /* birdStats */ = {
 			isa = PBXGroup;
 			children = (
+				F254F5551C17778E004AF7A2 /* src */,
 				F254F53D1C17768E004AF7A2 /* birdStats.h */,
 				F254F53F1C17768E004AF7A2 /* birdStats.m */,
 			);
 			path = birdStats;
+			sourceTree = "<group>";
+		};
+		F254F54B1C1776B8004AF7A2 /* birdStatsTests */ = {
+			isa = PBXGroup;
+			children = (
+				F254F54C1C1776B8004AF7A2 /* birdStatsTests.m */,
+				F254F54E1C1776B8004AF7A2 /* Info.plist */,
+			);
+			path = birdStatsTests;
+			sourceTree = "<group>";
+		};
+		F254F5551C17778E004AF7A2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				F254F5571C17778E004AF7A2 /* birdBuffer.h */,
+				F254F5561C17778E004AF7A2 /* birdBuffer.c */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +133,24 @@
 			productReference = F254F53A1C17768E004AF7A2 /* libbirdStats.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		F254F5491C1776B8004AF7A2 /* birdStatsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F254F5521C1776B8004AF7A2 /* Build configuration list for PBXNativeTarget "birdStatsTests" */;
+			buildPhases = (
+				F254F5461C1776B8004AF7A2 /* Sources */,
+				F254F5471C1776B8004AF7A2 /* Frameworks */,
+				F254F5481C1776B8004AF7A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F254F5511C1776B8004AF7A2 /* PBXTargetDependency */,
+			);
+			name = birdStatsTests;
+			productName = birdStatsTests;
+			productReference = F254F54A1C1776B8004AF7A2 /* birdStatsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -96,6 +161,9 @@
 				ORGANIZATIONNAME = birdSound;
 				TargetAttributes = {
 					F254F5391C17768E004AF7A2 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					F254F5491C1776B8004AF7A2 = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
 				};
@@ -113,20 +181,48 @@
 			projectRoot = "";
 			targets = (
 				F254F5391C17768E004AF7A2 /* birdStats */,
+				F254F5491C1776B8004AF7A2 /* birdStatsTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F254F5481C1776B8004AF7A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F254F5361C17768E004AF7A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F254F5581C17778E004AF7A2 /* birdBuffer.c in Sources */,
 				F254F5401C17768E004AF7A2 /* birdStats.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F254F5461C1776B8004AF7A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F254F54D1C1776B8004AF7A2 /* birdStatsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F254F5511C1776B8004AF7A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F254F5391C17768E004AF7A2 /* birdStats */;
+			targetProxy = F254F5501C1776B8004AF7A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F254F5411C17768E004AF7A2 /* Debug */ = {
@@ -227,6 +323,26 @@
 			};
 			name = Release;
 		};
+		F254F5531C1776B8004AF7A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = birdStatsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = birdSound.birdStatsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F254F5541C1776B8004AF7A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = birdStatsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = birdSound.birdStatsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -244,6 +360,14 @@
 			buildConfigurations = (
 				F254F5441C17768E004AF7A2 /* Debug */,
 				F254F5451C17768E004AF7A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F254F5521C1776B8004AF7A2 /* Build configuration list for PBXNativeTarget "birdStatsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F254F5531C1776B8004AF7A2 /* Debug */,
+				F254F5541C1776B8004AF7A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

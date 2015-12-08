@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>birdStatsTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>F254F5391C17768E004AF7A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F254F5491C1776B8004AF7A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
