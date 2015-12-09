@@ -22,8 +22,7 @@
 - (void)setUp {
     [super setUp];
     _n = 100;
-    NSString *tag = @"birdStats Tests";
-    createBuffer(&_birdBuffer, [tag UTF8String],_n);
+    createBuffer(&_birdBuffer, "birdBufferStats Tests",_n);
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
