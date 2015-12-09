@@ -12,18 +12,23 @@
 #include <stdio.h>
 
 typedef struct {
-    int n;
-    int i;
-    int max;
-    double *observations;
+    int n; //current number of observations
+    int i; //index at which the next observation will be added
+    int max; //maximum number of observations
+    char tag[100]; //identifier string
+    double *observations; //an array of observations
 } birdBuffer;
 
-void    createBuffer (birdBuffer *buffer, int max);
+void    createBuffer (birdBuffer *buffer, char *tag, int max);
 void    addToBuffer (birdBuffer *buffer, double obs);
-double  getBufferMin(birdBuffer *buffer);
-double  getBufferMax (birdBuffer *buffer);
-double  getBufferMean (birdBuffer *buffer);
-double  getBufferMedian (birdBuffer *buffer);
+void    setBuffer (birdBuffer *buffer, double setToValue);
+void    zeroBuffer (birdBuffer *buffer);
 void    destroyBuffer (birdBuffer *buffer);
+
+double  getBufferObs (birdBuffer *buffer, int idx); //get the observation at index 'idx' where idx = 0 is the oldest and idx = ( n - 1 ) is the most recent
+double  getBufferRecentObs (birdBuffer *buffer, int idx); //get the observation at index 'idx' where idx = 0 is the most recent and ( n - 1 ) is the newest
+void    printBuffer (birdBuffer *buffer);
+
+
 
 #endif /* birdBuffer_h */

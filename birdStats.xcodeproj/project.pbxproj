@@ -12,6 +12,10 @@
 		F254F54D1C1776B8004AF7A2 /* birdStatsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F254F54C1C1776B8004AF7A2 /* birdStatsTests.m */; };
 		F254F54F1C1776B8004AF7A2 /* libbirdStats.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F254F53A1C17768E004AF7A2 /* libbirdStats.a */; };
 		F254F5581C17778E004AF7A2 /* birdBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = F254F5561C17778E004AF7A2 /* birdBuffer.c */; };
+		F28179EE1C18A54100097863 /* birdNormal.c in Sources */ = {isa = PBXBuildFile; fileRef = F28179EC1C18A54100097863 /* birdNormal.c */; };
+		F28179F11C18ADE200097863 /* birdBufferStats.c in Sources */ = {isa = PBXBuildFile; fileRef = F28179EF1C18ADE200097863 /* birdBufferStats.c */; };
+		F28179F31C18B12D00097863 /* birdBufferTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F28179F21C18B12D00097863 /* birdBufferTests.m */; };
+		F28179F51C18B13900097863 /* birdBufferStatsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F28179F41C18B13900097863 /* birdBufferStatsTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,12 @@
 		F254F54E1C1776B8004AF7A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F254F5561C17778E004AF7A2 /* birdBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = birdBuffer.c; sourceTree = "<group>"; };
 		F254F5571C17778E004AF7A2 /* birdBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = birdBuffer.h; sourceTree = "<group>"; };
+		F28179EC1C18A54100097863 /* birdNormal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = birdNormal.c; sourceTree = "<group>"; };
+		F28179ED1C18A54100097863 /* birdNormal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = birdNormal.h; sourceTree = "<group>"; };
+		F28179EF1C18ADE200097863 /* birdBufferStats.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = birdBufferStats.c; sourceTree = "<group>"; };
+		F28179F01C18ADE200097863 /* birdBufferStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = birdBufferStats.h; sourceTree = "<group>"; };
+		F28179F21C18B12D00097863 /* birdBufferTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = birdBufferTests.m; sourceTree = "<group>"; };
+		F28179F41C18B13900097863 /* birdBufferStatsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = birdBufferStatsTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				F254F54C1C1776B8004AF7A2 /* birdStatsTests.m */,
+				F28179F21C18B12D00097863 /* birdBufferTests.m */,
+				F28179F41C18B13900097863 /* birdBufferStatsTests.m */,
 				F254F54E1C1776B8004AF7A2 /* Info.plist */,
 			);
 			path = birdStatsTests;
@@ -109,6 +121,10 @@
 			children = (
 				F254F5571C17778E004AF7A2 /* birdBuffer.h */,
 				F254F5561C17778E004AF7A2 /* birdBuffer.c */,
+				F28179EF1C18ADE200097863 /* birdBufferStats.c */,
+				F28179F01C18ADE200097863 /* birdBufferStats.h */,
+				F28179EC1C18A54100097863 /* birdNormal.c */,
+				F28179ED1C18A54100097863 /* birdNormal.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -201,7 +217,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F28179F11C18ADE200097863 /* birdBufferStats.c in Sources */,
 				F254F5581C17778E004AF7A2 /* birdBuffer.c in Sources */,
+				F28179EE1C18A54100097863 /* birdNormal.c in Sources */,
 				F254F5401C17768E004AF7A2 /* birdStats.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +228,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F28179F51C18B13900097863 /* birdBufferStatsTests.m in Sources */,
+				F28179F31C18B12D00097863 /* birdBufferTests.m in Sources */,
 				F254F54D1C1776B8004AF7A2 /* birdStatsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +382,7 @@
 				F254F5451C17768E004AF7A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F254F5521C1776B8004AF7A2 /* Build configuration list for PBXNativeTarget "birdStatsTests" */ = {
 			isa = XCConfigurationList;
@@ -370,6 +391,7 @@
 				F254F5541C1776B8004AF7A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

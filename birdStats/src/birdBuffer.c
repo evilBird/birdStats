@@ -7,14 +7,15 @@
 //
 
 #include "birdBuffer.h"
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
 
-void createBuffer (birdBuffer *buffer, int max)
+void createBuffer (birdBuffer *buffer, char *tag, int max)
 {
     buffer->n = 0;
     buffer->i = 0;
     buffer->max = max;
+    strcpy(buffer->tag, tag);
     buffer->observations = (double*)(malloc(sizeof(double) * (max+1)));
 }
 
@@ -39,75 +40,23 @@ void addToBuffer (birdBuffer *buffer, double obs)
     buffer->i = i;
 }
 
-int mm_compare_doubles (const void * a, const void * b)
-{
-    return ( *(double*)a - *(double*)b );
-}
-
-double getBufferMin (birdBuffer *buffer)
+void setBuffer (birdBuffer *buffer, double setToValue)
 {
     int n = buffer->n;
-    if ( n == 0 ) {
-        return 0.0;
+    if (n <= 0){
+        return;
     }
     
-    double *temp = NULL;
-    temp = (double *)(malloc(sizeof(double)*n+1));
-    memcpy(temp, buffer->observations, sizeof(double)*n + 1);
-    qsort(temp, n, sizeof(double), mm_compare_doubles);
-    double result = temp[0];
-    free(temp);
-    return result;
+    int i = 0;
+    do {
+        int index = (i+buffer->i)%n;
+        buffer->observations[index] = setToValue;
+    } while (++i<n);
 }
 
-double getBufferMax (birdBuffer *buffer)
+void zeroBuffer (birdBuffer *buffer)
 {
-    int n = buffer->n;
-    if ( n == 0 ) {
-        return 0.0;
-    }
-    double *temp = NULL;
-    temp = (double *)(malloc(sizeof(double)*n+1));
-    memcpy(temp, buffer->observations, sizeof(double)*n + 1);
-    qsort(temp, n, sizeof(double), mm_compare_doubles);
-    double result = temp[(n-1)];
-    free(temp);
-    return result;
-}
-
-double getBufferMean (birdBuffer *buffer)
-{
-    int n = buffer->n;
-    
-    if ( n == 0 ) {
-        return 0.0;
-    }
-    
-    double runningSum = 0.0;
-    while (n--) {
-        runningSum+=(buffer->observations[n]);
-    }
-    return (double)(runningSum/(double)(buffer->n));
-}
-
-double getBufferMedian (birdBuffer *buffer)
-{
-    int n = buffer->n;
-    if ( n == 0 ) {
-        return 0.0;
-    }
-    
-    if ( n < 3) {
-        return buffer->observations[n/2];
-    }
-    
-    double *temp = NULL;
-    temp = (double *)(malloc(sizeof(double)*n+1));
-    memcpy(temp, buffer->observations, sizeof(double)*n + 1);
-    qsort(temp, n, sizeof(double), mm_compare_doubles);
-    double result = temp[(n/2)];
-    free(temp);
-    return result;
+    return setBuffer(buffer, 0.0);
 }
 
 void destroyBuffer (birdBuffer *buffer)
@@ -119,4 +68,70 @@ void destroyBuffer (birdBuffer *buffer)
     buffer->i = 0;
     buffer->max = 0;
     free(buffer->observations);
+}
+
+int getBufferObsIndex(birdBuffer *buffer, int idx)
+{
+    int n = buffer->n;
+    
+    if ( idx >= n ) {
+        return -1; //Error - index is beyond bounds of array
+    }
+    
+    int i = buffer->i;
+    int firstIndex = ( i == n ) ? 0 : ( i );
+    int index = firstIndex+idx;
+    return index;
+}
+
+double  getBufferObs (birdBuffer *buffer, int idx)
+{
+    int n = buffer->n;
+    int index = getBufferObsIndex(buffer, idx);
+    if ( idx >= n || index < 0 || index >= n ) {
+        return -1.0; //Error - index is beyond bounds of array
+    }
+    
+    double obs = buffer->observations[index];
+    return obs;
+}
+
+int getBufferRecentObsIndex(birdBuffer *buffer, int idx)
+{
+    int n = buffer->n;
+    if ( idx >= n || n <= 0 ) {
+        return -1; //Error - index is beyond bounds of array, or the array is empty
+    }
+    
+    int i = buffer->i;
+    int lastIdx = ( i > 0 ) ? ( i - 1 ) : ( n - 1 );
+    int diff = lastIdx-idx;
+    int index = ( diff >= 0 ) ? ( diff ) : ( n + diff );
+    return index;
+}
+
+
+double  getBufferRecentObs (birdBuffer *buffer, int idx)
+{
+    int n = buffer->n;
+    int index = getBufferRecentObsIndex(buffer, idx);
+    
+    if ( idx >= n || n <= 0 || index >= n ) {
+        return -1.0; //Error - index is beyond bounds of array, or the array is empty
+    }
+    double obs = buffer->observations[index];
+    return obs;
+}
+
+void printBuffer (birdBuffer *buffer)
+{
+    int n = buffer->n;
+    int index = getBufferObsIndex(buffer, 0);
+    printf("\nPRINT BUFFER (n = %d, first obs index = %d)",n,index);
+    for (int i = 0; i < n; i ++) {
+        int idx = (index + i)%n;
+        double obs = buffer->observations[idx];
+        printf("\n%d) %.2f",idx,obs);
+    }
+    printf("\n");
 }
